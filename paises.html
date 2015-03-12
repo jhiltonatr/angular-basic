@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type="text/javascript" src="scripts/ext/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/controllers/PaisesController.js"></script>
+	</head>
+	<body ng-app="paisesApp">
+		
+		
+		<div ng-controller="PaisesCtrl">
+			<select value="{{region}}" ng-change="consultarPaisesRegion()" ng-model="region">
+				<option value="{{reg}}" ng-repeat="reg in regiones">{{reg}}</option>
+			</select>
+			<p>
+				Paises:
+			</p>		
+			<table>
+				<thead>
+					<th>Nombre</th>
+					<th>Capital</th>
+					<th>Moneda</th>
+					<th>Area</th>
+					<th>Poblacion</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="pais in paises">
+						<td>{{pais.name}}</td>
+						<td>{{pais.capital}}</td>
+						<td>{{pais.currencies[0]}}</td>
+						<td>{{pais.area}}</td>
+						<td>{{pais.population}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	</body>
+	
+</html>

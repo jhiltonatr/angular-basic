@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script type="text/javascript" src="scripts/ext/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/controllers/PersonasController.js"></script>
+	</head>
+	<body ng-app="dojoApp">
+		Ingrese Nombre: <input type="text" value="{{nombreAFiltrar}}" placeholder="Ingrese el nombre" ng-model="nombreAFiltrar" />
+		
+		
+		<div ng-controller="PersonasCtrl">
+			<p>
+				Personas en el arreglo:
+			</p>		
+			
+			<div ng-repeat="persona in personas | filter:{nombre:nombreAFiltrar}">
+				Nombre : {{persona.nombre}}&nbsp;&nbsp;&nbsp;
+				Ciudad : {{persona.ciudad | uppercase}}&nbsp;&nbsp;&nbsp;
+				Fecha Nacimiento : {{persona.fecha_nacimiento | date:'medium'}}
+				<!-- https://docs.angularjs.org/api/ng/filter/date -->
+			</div>
+		</div>
+	</body>
+	
+</html>
